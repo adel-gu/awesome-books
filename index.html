@@ -5,39 +5,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Awesome Books</title>
-    <script src="./scripts/main.js"></script>
+    <script src="./scripts/main.js" defer></script>
   </head>
   <body>
     <main>
       <h1>Awesome books</h1>
-      <table class="book-list">
-        <tbody>
-          <tr class="book-info">
-            <td class="title">First Book</td>
-            <td class="author">Testeroo Testy</td>
-            <td class="remove"><button>remove</button></td>
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Author</th>
+            <th scope="col">Handle</th>
           </tr>
-        </tbody>
+        </thead>
+        <tbody class="collections"></tbody>
       </table>
-      <form action="#">
-        <fieldset>
-          <ul>
-            <li>
-              <input type="text" name="title" id="title" placeholder="Title" />
-            </li>
-            <li>
-              <input
-                type="text"
-                name="author"
-                id="author"
-                placeholder="Author"
-              />
-            </li>
-            <li>
-              <button type="submit">Add</button>
-            </li>
-          </ul>
-        </fieldset>
+      <form>
+        <ul>
+          <li>
+            <input type="text" name="title" id="title" placeholder="Title" />
+          </li>
+          <li>
+            <input type="text" name="author" id="author" placeholder="Author" />
+          </li>
+          <li>
+            <button type="submit" class="add-book">Add</button>
+          </li>
+        </ul>
       </form>
     </main>
   </body>
