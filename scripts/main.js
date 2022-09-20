@@ -19,13 +19,6 @@ function getNewBookData() {
   return book;
 }
 
-// Add the new book to local storage
-function addNewBook(e) {
-  e.preventDefault();
-  saveBook(getNewBookData());
-  bookForm.submit();
-}
-
 // save the book in local sotrage
 function saveBook(book) {
   let books = [];
@@ -36,6 +29,13 @@ function saveBook(book) {
 
   books.push(book);
   localStorage.setItem('Books', JSON.stringify(books));
+}
+
+// Add the new book to local storage
+function addNewBook(e) {
+  e.preventDefault();
+  saveBook(getNewBookData());
+  bookForm.submit();
 }
 
 // Display the collections of books
@@ -63,7 +63,7 @@ bookForm.addEventListener('submit', addNewBook);
 // Remove Book
 function removeBook(index) {
   if (localStorage.getItem('Books')) {
-    let books = JSON.parse(localStorage.getItem('Books'));
+    const books = JSON.parse(localStorage.getItem('Books'));
     books.splice(index, 1);
     localStorage.clear();
     localStorage.setItem('Books', JSON.stringify(books));
