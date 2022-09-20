@@ -1,9 +1,10 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
 # Awsome Books
-> This Project webApp when you can adds and removes book from a list of books. 
+This Project `Awesome books` is a simple webApp that displays a list of books and allows you to add and remove books from that list.
 
-# Preview
+## Preview
+![awsome-books](https://user-images.githubusercontent.com/68030297/191219383-baaebd73-aae5-4952-9b3a-ea0a6aaa7b88.GIF)
 
 ## Built With
 
