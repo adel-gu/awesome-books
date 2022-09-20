@@ -46,11 +46,11 @@ To get a local copy up and running follow these simple example steps.
 - Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
 - LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
 
-👤 **Author2**
+👤 **Andrea**
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- GitHub: [@TechnoAndy](https://github.com/TechnoAndy)
+- Twitter: [@Adiegaardt](https://twitter.com/@Adiegaardt)
+- LinkedIn: [Andrea Diegaardt](http://www.linkedin.com/in/andrea-diegaardt-110203116)
 
 ## 🤝 Contributing
 
