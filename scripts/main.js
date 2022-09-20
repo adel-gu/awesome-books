@@ -10,6 +10,7 @@ function getNewBookData() {
   const booktTitle = bookForm.title.value;
   const bookAuthor = bookForm.author.value;
 
+  // create new book.
   const book = {
     title: booktTitle,
     author: bookAuthor,
@@ -28,6 +29,7 @@ function addNewBook(e) {
 // save the book in local sotrage
 function saveBook(book) {
   let books = [];
+  // check for existing local storage data.
   if (localStorage.getItem('Books')) {
     books = JSON.parse(localStorage.getItem('Books'));
   }
@@ -38,6 +40,7 @@ function saveBook(book) {
 
 // Display the collections of books
 function displayBook() {
+  // check for existing local storage data.
   if (localStorage.getItem('Books')) {
     const books = JSON.parse(localStorage.getItem('Books'));
     books.forEach((book) => {
@@ -45,7 +48,7 @@ function displayBook() {
         <tr class="book-info">
           <td class="title">${book.title}</td>
           <td class="author">${book.author}</td>
-          <td><button class="remove-book">remove</button></td>
+          <td><button class="remove">Remove</button></td>
         </tr>
     `;
 
@@ -56,5 +59,3 @@ function displayBook() {
 
 displayBook();
 bookForm.addEventListener('submit', addNewBook);
-
-// Remove Book
