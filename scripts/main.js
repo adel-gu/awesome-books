@@ -10,13 +10,21 @@ class Book {
   }
 }
 
-// Local Storage class
 class Storage {
   static #books = [];
 
   // check for existance of local storage.
   static #checkStorage() {
     return localStorage.getItem('Books');
+  }
+
+  // get books from local storage
+  static getBooksFromStorage() {
+    if (Storage.#checkStorage()) {
+      Storage.#books = JSON.parse(localStorage.getItem('Books'));
+    }
+
+    return Storage.#books;
   }
 
   // save book to local storage
@@ -43,7 +51,6 @@ class Storage {
   }
 }
 
-// UI class
 class BookApp {
   // get book template
   static #bookTemplate(book) {
@@ -65,6 +72,14 @@ class BookApp {
   // Delete book from screen
   static deleteBook(btn) {
     btn.parentElement.parentElement.remove();
+  }
+
+  // Display Books when page realods
+  static displayBooks(container) {
+    const books = Storage.getBooksFromStorage();
+    books.forEach((book) => {
+      BookApp.displayBook(container, book);
+    });
   }
 }
 
@@ -98,3 +113,9 @@ collections.addEventListener('click', (e) => {
     Storage.unsaveBook(bookIndex);
   }
 });
+
+// Display books when page is reloading
+document.addEventListener(
+  'DOMContentLoaded',
+  BookApp.displayBooks(collections)
+);
