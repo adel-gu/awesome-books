@@ -10,6 +10,28 @@ class Book {
   }
 }
 
+// Local Storage class
+class Storage {
+  static #books = [];
+
+  // check for existance of local storage.
+  static #checkStorage() {
+    return localStorage.getItem('Books');
+  }
+
+  // save book to local storage
+  static saveBook(book) {
+    // check for existing local storage data.
+    if (Storage.#checkStorage()) {
+      Storage.#books = JSON.parse(localStorage.getItem('Books'));
+    }
+
+    Storage.#books.push(book);
+    localStorage.setItem('Books', JSON.stringify(Storage.#books));
+  }
+}
+
+// UI class
 class BookApp {
   // get book template
   static #bookTemplate(book) {
@@ -39,6 +61,7 @@ bookForm.add.addEventListener('click', (e) => {
   const author = bookForm.author.value;
 
   const book = new Book(title, author);
+  Storage.saveBook(book);
   BookApp.displayBook(collections, book);
 
   bookForm.reset();
