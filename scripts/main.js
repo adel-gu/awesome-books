@@ -29,6 +29,18 @@ class Storage {
     Storage.#books.push(book);
     localStorage.setItem('Books', JSON.stringify(Storage.#books));
   }
+
+  // Unsave the book from local storage
+  static unsaveBook(index) {
+    if (Storage.#checkStorage()) {
+      let books = Storage.#books;
+      books = books.filter((book) => {
+        return books.indexOf(book) !== index;
+      });
+      localStorage.clear();
+      localStorage.setItem('Books', JSON.stringify(books));
+    }
+  }
 }
 
 // UI class
@@ -49,6 +61,11 @@ class BookApp {
   static displayBook(container, book) {
     container.innerHTML += BookApp.#bookTemplate(book);
   }
+
+  // Delete book from screen
+  static deleteBook(btn) {
+    btn.parentElement.parentElement.remove();
+  }
 }
 
 const bookForm = document.forms[0];
@@ -65,4 +82,19 @@ bookForm.add.addEventListener('click', (e) => {
   BookApp.displayBook(collections, book);
 
   bookForm.reset();
+});
+
+// Remove books
+collections.addEventListener('click', (e) => {
+  if ([...e.target.classList].includes('remove')) {
+    const removeBtn = e.target;
+    const bookIndex = [...collections.querySelectorAll('.remove')].indexOf(
+      removeBtn
+    );
+
+    // remove from screen
+    BookApp.deleteBook(removeBtn);
+    // remove from local storage
+    Storage.unsaveBook(bookIndex);
+  }
 });
