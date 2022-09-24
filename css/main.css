@@ -1,0 +1,13 @@
+button.btn {
+  border-radius: 0;
+}
+
+form {
+  width: 600px;
+  max-width: 90%;
+}
+
+table.table {
+  width: 900px;
+  max-width: 100%;
+}
