@@ -1,3 +1,5 @@
+/* eslint-disable max-classes-per-file */
+
 // Book class
 class Book {
   constructor(title, author) {
@@ -42,9 +44,7 @@ class Storage {
   static unsaveBook(index) {
     if (Storage.#checkStorage()) {
       let books = Storage.#books;
-      books = books.filter((book) => {
-        return books.indexOf(book) !== index;
-      });
+      books = books.filter((book) => books.indexOf(book) !== index);
       localStorage.clear();
       localStorage.setItem('Books', JSON.stringify(books));
     }
@@ -85,21 +85,17 @@ class BookApp {
 
 class Validation {
   static unValidInput(title, author) {
-    const inputs = [title, author].filter((input) => {
-      return input.value === '';
-    });
+    const inputs = [title, author].filter((input) => input.value === '');
 
-    inputs.map((input) => {
+    inputs.forEach((input) => {
       input.classList.add('border-danger');
     });
   }
 
   static validInput(title, author) {
-    const inputs = [title, author].filter((input) => {
-      return input.value !== '';
-    });
+    const inputs = [title, author].filter((input) => input.value !== '');
 
-    inputs.map((input) => {
+    inputs.forEach((input) => {
       input.classList.remove('border-danger');
     });
   }
@@ -112,10 +108,10 @@ const collections = document.querySelector('.collections');
 // Display books when page is reloading
 bookForm.add.addEventListener('click', (e) => {
   e.preventDefault();
-  const title = bookForm.title;
-  const author = bookForm.author;
+  const { title } = bookForm;
+  const { author } = bookForm;
 
-  if (title.value === '' || author.value == '') {
+  if (title.value === '' || author.value === '') {
     Validation.unValidInput(title, author);
     Validation.validInput(title, author);
   } else {
@@ -133,7 +129,7 @@ collections.addEventListener('click', (e) => {
   if ([...e.target.classList].includes('remove')) {
     const removeBtn = e.target;
     const bookIndex = [...collections.querySelectorAll('.remove')].indexOf(
-      removeBtn
+      removeBtn,
     );
 
     // remove from screen
@@ -146,5 +142,5 @@ collections.addEventListener('click', (e) => {
 // Display books when page is reloading
 document.addEventListener(
   'DOMContentLoaded',
-  BookApp.displayBooks(collections)
+  BookApp.displayBooks(collections),
 );
