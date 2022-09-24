@@ -1,8 +1,13 @@
+body {
+  min-height: 100vh;
+}
+
 button.btn {
   border-radius: 0;
 }
 
-form {
+form,
+.contact-content {
   width: 600px;
   max-width: 90%;
 }
@@ -10,4 +15,14 @@ form {
 table.table {
   width: 900px;
   max-width: 100%;
+}
+
+.page {
+  display: none;
+  margin-top: -4em;
+}
+
+.current {
+  display: block;
+  align-items: center;
 }
