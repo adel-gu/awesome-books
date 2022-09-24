@@ -58,7 +58,7 @@ class BookApp {
        <tr class="book-info">
          <td class="title">${book.title}</td>
          <td class="author">${book.author}</td>
-         <td><button class="remove">Remove</button></td>
+         <td class="d-flex justify-content-end"><button class="btn btn-outline-dark remove">Remove</button></td>
        </tr>
    `;
     return bookTemplate;
@@ -83,20 +83,49 @@ class BookApp {
   }
 }
 
+class Validation {
+  static unValidInput(title, author) {
+    const inputs = [title, author].filter((input) => {
+      return input.value === '';
+    });
+
+    inputs.map((input) => {
+      input.classList.add('border-danger');
+    });
+  }
+
+  static validInput(title, author) {
+    const inputs = [title, author].filter((input) => {
+      return input.value !== '';
+    });
+
+    inputs.map((input) => {
+      input.classList.remove('border-danger');
+    });
+  }
+}
+
+// HTML DOM Elements
 const bookForm = document.forms[0];
 const collections = document.querySelector('.collections');
 
 // Display books when page is reloading
 bookForm.add.addEventListener('click', (e) => {
   e.preventDefault();
-  const title = bookForm.title.value;
-  const author = bookForm.author.value;
+  const title = bookForm.title;
+  const author = bookForm.author;
 
-  const book = new Book(title, author);
-  Storage.saveBook(book);
-  BookApp.displayBook(collections, book);
+  if (title.value === '' || author.value == '') {
+    Validation.unValidInput(title, author);
+    Validation.validInput(title, author);
+  } else {
+    Validation.validInput(title, author);
+    const book = new Book(title.value, author.value);
+    Storage.saveBook(book);
+    BookApp.displayBook(collections, book);
 
-  bookForm.reset();
+    bookForm.reset();
+  }
 });
 
 // Remove books
