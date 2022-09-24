@@ -16,9 +16,69 @@
     <!-- Local CSS styles -->
     <link rel="stylesheet" href="./css/main.css" />
   </head>
-  <body>
+  <body class="d-flex flex-column justify-content-between">
+    <!-- Header Section -->
+    <header>
+      <nav class="navbar navbar-expand-lg pb-0">
+        <div class="container-fluid container border border-dark py-2">
+          <a class="navbar-brand" href="#">Awesome Books</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto gap-3">
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  aria-current="page"
+                  data-trigger="list"
+                  href="#list"
+                  >List</a
+                >
+              </li>
+
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  aria-current="page"
+                  data-trigger="addNew"
+                  href="#addNew"
+                  >Add New</a
+                >
+              </li>
+
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  aria-current="page"
+                  data-trigger="contact"
+                  href="#contact"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <div class="date-time container d-flex justify-content-end gap-1 p-0">
+        <span class="date"></span>
+        <span class="time"></span>
+      </div>
+    </header>
+
+    <!-- Main Section -->
     <main>
-      <section class="p-3">
+      <!-- Book List Section -->
+      <section class="page current p-3" id="list">
         <div class="container">
           <h1 class="text-center">Awesome books</h1>
           <table class="table table-striped border my-4 mx-auto">
@@ -33,9 +93,10 @@
         </div>
       </section>
 
-      <section class="p-3">
+      <!-- Add new Book Section -->
+      <section class="page p-3" id="addNew">
         <div class="container text-center">
-          <h2>Add a new book</h2>
+          <h1>Add a new book</h1>
           <form class="mx-auto my-4">
             <ul class="list-unstyled">
               <li>
@@ -67,7 +128,36 @@
           </form>
         </div>
       </section>
+
+      <!-- Contact Section -->
+      <section class="page" id="contact">
+        <div class="container">
+          <h1 class="text-center">Contact information</h1>
+          <div class="contact-content mx-auto mt-5">
+            <p>
+              Do you have any questions or you just want to say "Hello"? <br />
+              You can reach out to us!
+            </p>
+            <ul>
+              <li>Our e-mail: mail@mail.com</li>
+              <li>Our phone number: 0043586634422</li>
+              <li>Our address: Streetname 22, 84503 City, Country</li>
+            </ul>
+          </div>
+        </div>
+      </section>
     </main>
+
+    <!-- Footer Section -->
+    <footer class="mb-2">
+      <div class="container-fluid container border border-dark py-3">
+        <span>Copyright ©️ 2022</span>
+        <span>&</span>
+        <span>
+          <a href="https://github.com/adel-gu">Adel Guitoun</a>
+        </span>
+      </div>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
   </body>
