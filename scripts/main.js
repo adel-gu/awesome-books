@@ -129,7 +129,7 @@ collections.addEventListener('click', (e) => {
   if ([...e.target.classList].includes('remove')) {
     const removeBtn = e.target;
     const bookIndex = [...collections.querySelectorAll('.remove')].indexOf(
-      removeBtn
+      removeBtn,
     );
 
     // remove from screen
@@ -142,7 +142,7 @@ collections.addEventListener('click', (e) => {
 // Display books when page is reloading
 document.addEventListener(
   'DOMContentLoaded',
-  BookApp.displayBooks(collections)
+  BookApp.displayBooks(collections),
 );
 
 // Single Page Application "showing and hiding sections"
@@ -150,7 +150,7 @@ const navLinks = document.querySelectorAll('.nav-link');
 navLinks.forEach((link) => {
   link.addEventListener('click', () => {
     const page = document.querySelector(
-      `#${link.getAttribute('data-trigger')}`
+      `#${link.getAttribute('data-trigger')}`,
     );
 
     // remove active class from all links
