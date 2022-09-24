@@ -144,3 +144,86 @@ document.addEventListener(
   'DOMContentLoaded',
   BookApp.displayBooks(collections),
 );
+
+// Single Page Application "showing and hiding sections"
+const navLinks = document.querySelectorAll('.nav-link');
+navLinks.forEach((link) => {
+  link.addEventListener('click', () => {
+    const page = document.querySelector(
+      `#${link.getAttribute('data-trigger')}`,
+    );
+
+    // remove active class from all links
+    document.querySelector('.active').classList.remove('active');
+    // add active class to current class
+    link.classList.add('active');
+    // remove current class from the one who have it.
+    document.querySelector('.current').classList.remove('current');
+    // add the current class to the current section
+    page.classList.add('current');
+  });
+});
+
+// Time and Date
+const time = document.querySelector('.time');
+const date = document.querySelector('.date');
+
+function formatTime(date) {
+  const hour = date.getHours() % 12 || 12;
+  const minutes = date.getMinutes();
+  const seconds = date.getSeconds();
+  let state;
+
+  if (date.getHours() < 12) {
+    state = 'am';
+  } else {
+    state = 'pm';
+  }
+
+  return `${hour.toString().padStart(2, '0')}:${minutes
+    .toString()
+    .padStart(2, '0')}:${seconds.toString().padStart(2, '0')} ${state}`;
+}
+
+function formatDate(date) {
+  const months = [
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'Jun',
+    'Jul',
+    'Aug',
+    'Sep',
+    'Oct',
+    'Nov',
+    'Dec',
+  ];
+
+  const day = date.getDate();
+  const month = date.getMonth();
+  const year = date.getFullYear();
+  let state;
+
+  switch (day) {
+    case 1:
+      state = 'st';
+      break;
+    case 2:
+      state = 'nd';
+      break;
+    default:
+      state = 'th';
+      break;
+  }
+
+  return `${months[month]} ${day}${state} ${year},`;
+}
+
+setInterval(() => {
+  const today = new Date();
+
+  time.textContent = formatTime(today);
+  date.textContent = formatDate(today);
+}, 1000);
