@@ -2,7 +2,7 @@ import Book from './book.js';
 import BookUI from './book-ui.js';
 import Storage from './storage.js';
 import Validation from './validation.js';
-import DateTime from './luxon.js';
+import { DateTime } from './luxon.js';
 
 // Add book
 const addBook = (bookForm, collections) => {
@@ -77,10 +77,6 @@ const dateTime = (date) => {
   date.textContent = now;
 };
 
-export default {
-  addBook,
-  removeBook,
-  loadBooks,
-  spa,
-  dateTime,
+export {
+  addBook, removeBook, loadBooks, spa, dateTime,
 };
