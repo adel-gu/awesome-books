@@ -1,7 +1,8 @@
 import { Book } from './book.js';
 import { BookUI } from './book-ui.js';
-import { Validation } from './validation.js';
 import { Storage } from './storage.js';
+import { Validation } from './validation.js';
+import { DateTime } from './luxon.js';
 
 // Add book
 const addBook = (bookForm, collections) => {
@@ -69,4 +70,11 @@ const spa = (navLinks) => {
   });
 };
 
-export { addBook, removeBook, loadBooks, spa };
+// Set Date and Time
+const dateTime = (date) => {
+  const now = DateTime.now().toLocaleString(DateTime.DATETIME_MED_WITH_WEEKDAY);
+
+  date.textContent = now;
+};
+
+export { addBook, removeBook, loadBooks, spa, dateTime };
