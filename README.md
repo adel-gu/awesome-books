@@ -9,11 +9,13 @@ This Project `Awesome books` is a simple webApp that displays a list of books an
 ## Built With
 
 - `HTML5`
+- `CSS3`
+- `Bootstrap`
 - `JavaScript`
 
 ## Live Demo (if available)
 
-[Live Demo Link](https://livedemo.com)
+[Live Demo Link 🚀](https://adel-gu.github.io/awesome-books/)
 
 
 ## Getting Started
