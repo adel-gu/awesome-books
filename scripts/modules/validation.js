@@ -1,5 +1,5 @@
 // Validate empty inputs
-export class Validation {
+export default class Validation {
   static unValidInput(title, author) {
     const inputs = [title, author].filter((input) => input.value === '');
 

@@ -1,5 +1,5 @@
 // Storage Class
-export class Storage {
+export default class Storage {
   static #books = [];
 
   // check for existance of local storage.

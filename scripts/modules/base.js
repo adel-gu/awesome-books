@@ -1,8 +1,8 @@
-import { Book } from './book.js';
-import { BookUI } from './book-ui.js';
-import { Storage } from './storage.js';
-import { Validation } from './validation.js';
-import { DateTime } from './luxon.js';
+import Book from './book.js';
+import BookUI from './book-ui.js';
+import Storage from './storage.js';
+import Validation from './validation.js';
+import DateTime from './luxon.js';
 
 // Add book
 const addBook = (bookForm, collections) => {
@@ -31,7 +31,7 @@ const removeBook = (collections) => {
     if ([...e.target.classList].includes('remove')) {
       const removeBtn = e.target;
       const bookIndex = [...collections.querySelectorAll('.remove')].indexOf(
-        removeBtn
+        removeBtn,
       );
 
       // remove from screen
@@ -46,7 +46,7 @@ const removeBook = (collections) => {
 const loadBooks = (collections) => {
   document.addEventListener(
     'DOMContentLoaded',
-    BookUI.displayBooks(collections)
+    BookUI.displayBooks(collections),
   );
 };
 
@@ -55,7 +55,7 @@ const spa = (navLinks) => {
   navLinks.forEach((link) => {
     link.addEventListener('click', () => {
       const page = document.querySelector(
-        `#${link.getAttribute('data-trigger')}`
+        `#${link.getAttribute('data-trigger')}`,
       );
 
       // remove active class from all links
@@ -77,4 +77,10 @@ const dateTime = (date) => {
   date.textContent = now;
 };
 
-export { addBook, removeBook, loadBooks, spa, dateTime };
+export default {
+  addBook,
+  removeBook,
+  loadBooks,
+  spa,
+  dateTime,
+};

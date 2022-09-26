@@ -1,6 +1,6 @@
-import { Storage } from './storage.js';
+import Storage from './storage.js';
 // App ui class
-export class BookUI {
+export default class BookUI {
   // get book template
   static #bookTemplate(book) {
     const bookTemplate = `
