@@ -72,7 +72,7 @@ const spa = (navLinks) => {
 
 // Set Date and Time
 const dateTime = (date) => {
-  const now = DateTime.now().toLocaleString(DateTime.DATETIME_MED_WITH_WEEKDAY);
+  const now = DateTime.now().toLocaleString(DateTime.DATETIME_MED_WITH_SECONDS);
 
   date.textContent = now;
 };
